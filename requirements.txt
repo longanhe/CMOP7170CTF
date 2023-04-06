@@ -1,0 +1,7 @@
+qrcode
+io
+Crypto.Cipher
+base64
+random
+flask
+gunicorn

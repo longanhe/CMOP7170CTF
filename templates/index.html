@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywo rds" content="Price" />
+	<meta name="description" content="Price.com.hk 香港No.1格價網站" />
+    <title>Price</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        function refreshQRCode() {
+            let qrCodeImage = document.getElementById("qrCodeImage");
+            qrCodeImage.src = "/generate_qr_code?" + new Date().getTime();
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+
+        .separator-line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        .separator-text {
+            padding: 0 1rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .qr-code {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            border: 1px dashed #ccc;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="header">
+            <div class="headerContainer">
+              <a href="#"><img src="static/Price.jpg" /></a>
+            </div>
+         </div>  
+        <h1>log in</h1>
+        
+        <div class="qr-code">
+            <main>
+                <img id="qrCodeImage" src="/static/first.jpg" alt="QR Code" width="200" height="200"/>
+                <!-- <img id="qrCodeImage" src="/generate_qr_code" alt="QR Code" width="200" height="200"/> -->
+                <br />
+            </main>
+        </div>
+        <button onclick="refreshQRCode()">REFRESH</button>
+        <form action="/validate" method="post">
+            <input type="text" id="input_text" name="input_text" placeholder="confirmation" required>
+            <button type="submit">log in</button>
+        </form>
+        <p style="text-align: center;">Please use your Price APP to log in</p>
+    </div>
+
+</body>
+</html>
